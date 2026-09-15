@@ -6,6 +6,8 @@
   'use strict';
 
   var PLACEHOLDER = 'YOUR_FORM_ID';
+  var MAX_PHOTOS = 5;
+  var MAX_BYTES = 25 * 1024 * 1024;
 
   /* Mark the section currently in view in the masthead nav. */
   function navHighlight() {
@@ -50,6 +52,23 @@
       message.hidden = false;
     }
 
+    var photos = document.getElementById('f-photos');
+
+    function photoProblem() {
+      if (!photos || !photos.files || !photos.files.length) return null;
+      if (photos.files.length > MAX_PHOTOS) {
+        return 'Please choose no more than ' + MAX_PHOTOS + ' pictures. You have chosen ' +
+               photos.files.length + '.';
+      }
+      for (var i = 0; i < photos.files.length; i++) {
+        if (photos.files[i].size > MAX_BYTES) {
+          return '\u201C' + photos.files[i].name + '\u201D is larger than 25 MB. ' +
+                 'Please choose a smaller version of it.';
+        }
+      }
+      return null;
+    }
+
     form.addEventListener('submit', function (event) {
       if (form.action.indexOf(PLACEHOLDER) !== -1) {
         event.preventDefault();
@@ -58,12 +77,22 @@
         return;
       }
 
+      var problem = photoProblem();
+      if (problem) {
+        event.preventDefault();
+        say(problem, true);
+        photos.focus();
+        return;
+      }
+
       if (typeof window.fetch !== 'function') return; // Let the browser post it.
 
       event.preventDefault();
       submit.disabled = true;
       submit.textContent = 'Sending';
-      say('Sending your RSVP…');
+      say(photos && photos.files && photos.files.length
+        ? 'Sending your RSVP and pictures… this can take a moment.'
+        : 'Sending your RSVP…');
 
       fetch(form.action, {
         method: 'POST',

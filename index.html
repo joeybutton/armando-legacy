@@ -102,7 +102,7 @@
       <p>Thank you. The family will be in touch if anything about the day changes.</p>
     </div>
 
-    <form id="rsvp-form" class="rsvp"
+    <form id="rsvp-form" class="rsvp" enctype="multipart/form-data"
           action="https://formspree.io/f/mzezpell" method="POST">
 
       <div class="field">
@@ -130,6 +130,14 @@
                   placeholder="Anything at all &mdash; a story, a habit of his, a moment you think of."></textarea>
         <p class="hint">Optional. The family may read these aloud on the day, or add them
           to this page.</p>
+      </div>
+
+      <div class="field">
+        <label for="f-photos">Photographs of Armando</label>
+        <input type="file" id="f-photos" name="photos" multiple
+               accept="image/*,.heic,.heif">
+        <p class="hint">Optional. Up to 5 pictures, 25&nbsp;MB each. The family may add
+          them to this page.</p>
       </div>
 
       <div class="offscreen" aria-hidden="true">

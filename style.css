@@ -387,6 +387,36 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--paper-deep);
 }
 
+/* The ruled-line treatment suits typed text, not a file picker. */
+.field input[type="file"] {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+  border: 0;
+  padding: 0.35rem 0;
+}
+
+.field input[type="file"]:focus { background: transparent; }
+
+.field input[type="file"]::file-selector-button {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule-firm);
+  border-radius: 2px;
+  padding: 0.6rem 1.15rem;
+  margin-right: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.field input[type="file"]::file-selector-button:hover {
+  border-color: var(--ink);
+}
+
 .field input::placeholder,
 .field textarea::placeholder {
   color: var(--ink-soft);
