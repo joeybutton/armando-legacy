@@ -313,13 +313,11 @@ img { max-width: 100%; height: auto; display: block; }
 
 .where b { font-weight: 400; font-size: 1.1875rem; }
 
-.where-note {
-  max-width: 44ch;
-  margin: var(--s2) auto 0;
-  font-family: var(--sans);
-  font-size: 0.8125rem;
-  line-height: 1.6;
-  color: var(--ink-soft);
+/* Underlined, so the venue and address don't rely on colour alone. */
+.where a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 .actions {
@@ -376,9 +374,9 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--ink);
 }
 
-/* ── Reply card ────────────────────────────────────────────── */
+/* ── RSVP card ─────────────────────────────────────────────── */
 
-.reply {
+.rsvp {
   max-width: 34rem;
   margin-top: var(--s4);
   display: grid;

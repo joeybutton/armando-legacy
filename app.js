@@ -1,6 +1,6 @@
 /* Armando Fernandez — a celebration of his life
    Everything here is enhancement. With JavaScript off, the page reads in full and
-   the reply form still posts to Formspree the ordinary way. */
+   the RSVP form still posts to Formspree the ordinary way. */
 
 (function () {
   'use strict';
@@ -35,9 +35,9 @@
     targets.forEach(function (t) { observer.observe(t); });
   }
 
-  /* Submit the reply without leaving the page. */
-  function replyForm() {
-    var form = document.getElementById('reply-form');
+  /* Submit the RSVP without leaving the page. */
+  function rsvpForm() {
+    var form = document.getElementById('rsvp-form');
     if (!form) return;
 
     var message = document.getElementById('f-message');
@@ -63,7 +63,7 @@
       event.preventDefault();
       submit.disabled = true;
       submit.textContent = 'Sending';
-      say('Sending your reply…');
+      say('Sending your RSVP…');
 
       fetch(form.action, {
         method: 'POST',
@@ -78,8 +78,8 @@
         })
         .catch(function () {
           submit.disabled = false;
-          submit.textContent = 'Send reply';
-          say('That reply did not go through. Try once more, or call the family directly.', true);
+          submit.textContent = 'Send RSVP';
+          say('That RSVP did not go through. Try once more, or call the family directly.', true);
         });
     });
   }
@@ -127,6 +127,6 @@
   }
 
   navHighlight();
-  replyForm();
+  rsvpForm();
   gallery();
 })();

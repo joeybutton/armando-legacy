@@ -11,20 +11,20 @@ Static site, no build step, hosted on GitHub Pages at
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The entire page: hero, remembrance, the invitation, the reply form, photographs |
+| `index.html` | The entire page: hero, remembrance, the invitation, the RSVP form, photographs |
 | `style.css` | All styling. The tokens at the top control colour, type, and spacing |
-| `app.js` | Nav highlighting, reply submission, photo gallery. Enhancement only — the page works without it |
+| `app.js` | Nav highlighting, RSVP submission, photo gallery. Enhancement only — the page works without it |
 | `photos.json` | Photo list. The Photographs section stays hidden while this is empty |
 | `celebration.ics` | The "Save the date" download |
 | `CNAME` | Custom domain for GitHub Pages |
 | `.nojekyll` | Serve files as-is, without Jekyll processing |
 
-## The reply form
+## The RSVP form
 
 Live, posting to Formspree form `mzezpell`, and verified end to end.
 
 It collects a **name**, an **email**, **how many people are coming**, and an optional
-**memory of Armando**. Each reply is emailed to you and kept in the Formspree dashboard.
+**memory of Armando**. Each RSVP is emailed to you and kept in the Formspree dashboard.
 The field is named `email` so Formspree sets `Reply-To` — you can answer a guest by
 replying to the notification.
 
@@ -67,10 +67,6 @@ That can take up to an hour after DNS propagates.
 - **The remembrance.** The page currently says a fuller remembrance is still being
   written, which is honest and reads fine in the meantime. Replace the two paragraphs and
   the italic note under *Remembering Armando* when you have the text.
-- **The venue.** The invitation says the venue is being arranged and asks people to leave
-  their name and email for the address. Once it is settled, replace `Guttenberg, New Jersey` in the
-  invitation, delete the `.where-note` paragraph, and update `LOCATION` in
-  `celebration.ics` and the `address` in the JSON-LD block at the foot of `index.html`.
 - **Attire**, if the family wants to state it — add a line to the invitation.
 - **A share image** at `images/armando-fernandez/share.jpg` (1200×630), then uncomment the
   `og:image` meta tag. This controls the preview when the link is sent by text or posted.
