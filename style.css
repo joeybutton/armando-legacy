@@ -1,0 +1,522 @@
+/* ── Tokens ────────────────────────────────────────────────────
+   Warm paper and ink, with a single deep olive used only for
+   actions and the rule beneath Armando's name. */
+
+:root {
+  --paper:      #F7F4ED;
+  --paper-deep: #F0EBE0;
+  --ink:        #211E1A;
+  --ink-soft:   #6B6459;
+  --rule:       #D8D1C4;  /* decorative hairlines */
+  --rule-firm:  #8C8578;  /* edges of things you interact with */
+  --olive:      #4C5645;
+  --olive-dark: #3A4335;
+  --clay:       #8A5A48;
+
+  --serif: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --sans:  'Inter', system-ui, -apple-system, sans-serif;
+
+  --measure: 62ch;
+  --page: 40rem;
+
+  --s1: 0.5rem;
+  --s2: 1rem;
+  --s3: 1.5rem;
+  --s4: 2.5rem;
+  --s5: 4rem;
+  --s6: 6.5rem;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── Base ──────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--s4);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-size: 1.125rem;
+  font-weight: 350;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+p { text-wrap: pretty; max-width: var(--measure); }
+p + p { margin-top: var(--s2); }
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.15;
+  text-wrap: balance;
+  color: var(--ink);
+}
+
+a { color: var(--clay); text-decoration: none; }
+a:hover { color: var(--ink); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ── Shell ─────────────────────────────────────────────────── */
+
+.wrap {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding-inline: var(--s3);
+}
+
+.masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s3);
+  padding-block: var(--s3);
+}
+
+.masthead-name {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.masthead nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+}
+
+.masthead nav a {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  padding-block: 0.125rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.18s, border-color 0.18s;
+}
+
+.masthead nav a:hover,
+.masthead nav a.current {
+  color: var(--ink);
+  border-bottom-color: var(--olive);
+}
+
+/* ── Hero ──────────────────────────────────────────────────── */
+
+.hero {
+  text-align: center;
+  padding-block: var(--s6) var(--s5);
+}
+
+.portrait {
+  width: min(15rem, 62vw);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  margin: 0 auto var(--s4);
+  /* Arch-topped, the way a portrait is framed on a memorial card */
+  border-radius: 999px 999px 3px 3px;
+}
+
+.hero-name {
+  font-size: clamp(2.5rem, 9vw, 4.75rem);
+  font-weight: 300;
+  letter-spacing: -0.005em;
+  line-height: 1.04;
+}
+
+.hero-dates {
+  margin: var(--s3) auto 0;
+  font-size: 1rem;
+  font-weight: 350;
+  font-style: italic;
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+}
+
+.hero-rule {
+  width: 2.75rem;
+  height: 0;
+  margin: var(--s3) auto;
+  border: 0;
+  border-top: 1.5px solid var(--olive);
+}
+
+.hero-line {
+  font-size: 1.0625rem;
+  color: var(--ink-soft);
+}
+
+/* One orchestrated entrance, hero only. */
+.hero > * {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+.hero-name  { animation-delay: 0.05s; }
+.hero-dates { animation-delay: 0.22s; }
+.hero-rule  { animation-delay: 0.34s; }
+.hero-line  { animation-delay: 0.42s; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(0.6rem); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero > * { animation: none; }
+}
+
+/* ── Sections ──────────────────────────────────────────────── */
+
+/* Sections carry only bottom spacing, so adjacent ones never double up.
+   The one after the hero's divider gets its top spacing back. */
+.section { padding-bottom: var(--s5); }
+.divider + .section { padding-top: var(--s5); }
+
+.section h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: var(--s3);
+}
+
+.divider {
+  height: 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+  max-width: var(--page);
+  margin: 0 auto;
+}
+
+.note {
+  max-width: var(--measure);
+  margin-top: var(--s3);
+  padding-left: var(--s2);
+  border-left: 1.5px solid var(--rule);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ── Family roster ─────────────────────────────────────────── */
+
+.roster {
+  margin-top: var(--s5);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--rule);
+  display: grid;
+  gap: var(--s3);
+  text-align: center;
+}
+
+.roster-intro {
+  max-width: none;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.roster-names {
+  display: grid;
+  gap: var(--s3) var(--s4);
+  list-style: none;
+}
+
+.roster-names li { line-height: 1.4; }
+
+.roster-names b {
+  display: block;
+  font-size: 1.3125rem;
+  font-weight: 400;
+}
+
+.roster-names span {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+/* ── Invitation ────────────────────────────────────────────── */
+
+.invitation {
+  padding: var(--s5) var(--s3);
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  text-align: center;
+}
+
+.invitation h2 {
+  font-size: 1.1875rem;
+  font-weight: 350;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-bottom: var(--s4);
+}
+
+.when { display: block; }
+.when time { display: block; font-style: normal; }
+
+.when-day {
+  display: block;
+  font-size: 1.0625rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+}
+
+.when-date {
+  display: block;
+  font-size: clamp(2.25rem, 9vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-block: 0.15em 0.05em;
+}
+
+.when-year {
+  display: block;
+  font-size: 1.0625rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.18em;
+}
+
+.invitation-rule {
+  width: 2.75rem;
+  height: 0;
+  margin: var(--s4) auto;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.where {
+  font-size: 1.125rem;
+  max-width: none;
+}
+
+.where b { font-weight: 400; font-size: 1.1875rem; }
+
+.where-note {
+  max-width: 44ch;
+  margin: var(--s2) auto 0;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.actions {
+  display: grid;
+  gap: var(--s2);
+  max-width: 18rem;
+  margin: var(--s4) auto 0;
+}
+
+.actions .btn { text-align: center; }
+
+@media (min-width: 26rem) {
+  .actions {
+    grid-auto-flow: column;
+    justify-content: center;
+    max-width: none;
+  }
+}
+
+/* ── Buttons ───────────────────────────────────────────────── */
+
+.btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 0.8rem 1.6rem;
+  border: 1px solid var(--olive);
+  border-radius: 2px;
+  background: var(--olive);
+  color: var(--paper);
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+}
+
+.btn:hover {
+  background: var(--olive-dark);
+  border-color: var(--olive-dark);
+  color: var(--paper);
+}
+
+.btn:disabled { opacity: 0.5; cursor: default; }
+
+.btn-quiet {
+  background: transparent;
+  border-color: var(--rule-firm);
+  color: var(--ink);
+}
+
+.btn-quiet:hover {
+  background: transparent;
+  border-color: var(--ink-soft);
+  color: var(--ink);
+}
+
+/* ── Reply card ────────────────────────────────────────────── */
+
+.reply {
+  max-width: 34rem;
+  margin-top: var(--s4);
+  display: grid;
+  gap: var(--s4);
+}
+
+.field { display: grid; gap: 0.3rem; }
+
+.field > label {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+/* Ruled fill-in lines, the way a reply card is printed */
+.field input,
+.field textarea {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  font-weight: 350;
+  line-height: 1.7;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1.5px solid var(--rule-firm);
+  border-radius: 0;
+  padding: 0.45rem 0.1rem;
+  width: 100%;
+  transition: border-color 0.18s, background 0.18s;
+}
+
+.field textarea {
+  min-height: 6.5rem;
+  resize: vertical;
+  border: 1.5px solid var(--rule-firm);
+  border-radius: 2px;
+  padding: 0.7rem 0.8rem;
+}
+
+.field input:hover,
+.field textarea:hover { border-color: var(--ink); }
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--olive);
+  background: var(--paper-deep);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.65;
+  font-style: italic;
+}
+
+.field-count { max-width: 7rem; }
+
+.hint {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: var(--measure);
+}
+
+.offscreen {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.message {
+  font-size: 1.0625rem;
+  padding: var(--s2) var(--s3);
+  background: var(--paper-deep);
+  border-left: 1.5px solid var(--olive);
+  border-radius: 0 2px 2px 0;
+}
+
+.message[hidden] { display: none !important; }
+.message.bad { border-left-color: var(--clay); color: var(--clay); }
+
+.thanks { margin-top: var(--s3); }
+.thanks h3 { font-size: 1.5rem; font-weight: 400; margin-bottom: var(--s1); }
+.thanks p { max-width: var(--measure); }
+
+/* ── Photographs ───────────────────────────────────────────── */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: var(--s2);
+  margin-top: var(--s3);
+}
+
+.gallery figure { margin: 0; }
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.gallery figcaption {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  padding-top: var(--s1);
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+
+.foot {
+  padding-block: var(--s4);
+  border-top: 1px solid var(--rule);
+  text-align: center;
+}
+
+.foot p {
+  max-width: none;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.foot .domain {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-style: normal;
+  letter-spacing: 0.06em;
+  margin-top: var(--s1);
+}
+
+/* ── Wider screens ─────────────────────────────────────────── */
+
+@media (min-width: 40rem) {
+  .roster-names { grid-template-columns: repeat(3, 1fr); }
+  .invitation { padding-inline: var(--s5); }
+}
