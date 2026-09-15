@@ -106,6 +106,19 @@ For anyone editing this later:
 - One animation only: the hero's entrance on load. It is disabled under
   `prefers-reduced-motion`.
 
+## Analytics
+
+Page counts come from [GoatCounter](https://www.goatcounter.com), the same free,
+privacy-friendly counter used on the other family sites. No cookies, no personal data, and
+nothing that needs a consent banner.
+
+The snippet at the foot of `index.html` reports to site code **`fernandez-legacy`**. That
+code has to exist before anything is recorded — sign in at goatcounter.com and add a site
+with exactly that code. Until then the script 404s harmlessly and the page is unaffected.
+If you choose a different code, update the `data-goatcounter` URL to match.
+
+Stats are then at <https://fernandez-legacy.goatcounter.com>.
+
 ## Local preview
 
 ```sh
