@@ -1,4 +1,4 @@
-/* Armando Fernandez — a celebration of his life
+/* Armando Fernandez — a celebration of life
    Everything here is enhancement. With JavaScript off, the page reads in full and
    the RSVP form still posts to Formspree the ordinary way. */
 
