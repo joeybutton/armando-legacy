@@ -216,45 +216,6 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--ink-soft);
 }
 
-/* ── Family roster ─────────────────────────────────────────── */
-
-.roster {
-  margin-top: var(--s5);
-  padding-top: var(--s4);
-  border-top: 1px solid var(--rule);
-  display: grid;
-  gap: var(--s3);
-  text-align: center;
-}
-
-.roster-intro {
-  max-width: none;
-  font-size: 1rem;
-  font-style: italic;
-  color: var(--ink-soft);
-}
-
-.roster-names {
-  display: grid;
-  gap: var(--s3) var(--s4);
-  list-style: none;
-}
-
-.roster-names li { line-height: 1.4; }
-
-.roster-names b {
-  display: block;
-  font-size: 1.3125rem;
-  font-weight: 400;
-}
-
-.roster-names span {
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  color: var(--ink-soft);
-}
-
 /* ── Invitation ────────────────────────────────────────────── */
 
 .invitation {
@@ -517,6 +478,5 @@ img { max-width: 100%; height: auto; display: block; }
 /* ── Wider screens ─────────────────────────────────────────── */
 
 @media (min-width: 40rem) {
-  .roster-names { grid-template-columns: repeat(3, 1fr); }
   .invitation { padding-inline: var(--s5); }
 }
