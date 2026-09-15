@@ -19,18 +19,22 @@ Static site, no build step, hosted on GitHub Pages at
 | `CNAME` | Custom domain for GitHub Pages |
 | `.nojekyll` | Serve files as-is, without Jekyll processing |
 
-## Before you share the link
+## The reply form
 
-**Connect the reply form.** It currently has no destination — submitting shows an inline
-message saying so, rather than failing silently.
+Live, posting to Formspree form `mzezpell`, and verified end to end.
 
-1. Sign up at [formspree.io](https://formspree.io) and create a form (free tier is about
-   50 submissions a month, which should be ample).
-2. Copy the form ID — the `xxxxxxxx` from `https://formspree.io/f/xxxxxxxx`.
-3. In `index.html`, replace `YOUR_FORM_ID` in the `<form action="...">` attribute.
-
-The form collects a **name**, **how many people are coming**, and an optional
+It collects a **name**, an **email**, **how many people are coming**, and an optional
 **memory of Armando**. Each reply is emailed to you and kept in the Formspree dashboard.
+The field is named `email` so Formspree sets `Reply-To` — you can answer a guest by
+replying to the notification.
+
+Name, email and head count are required; the memory is not. To make email optional
+instead, drop `required` from the `#f-email` input in `index.html` — but note the
+invitation promises to email the venue address, so without it there is no way to reach
+that guest.
+
+The free tier allows about 50 submissions a month. If more are expected, upgrade before
+sharing the link widely, because submissions over the cap are rejected.
 
 ## Going live
 
@@ -64,7 +68,7 @@ That can take up to an hour after DNS propagates.
   written, which is honest and reads fine in the meantime. Replace the two paragraphs and
   the italic note under *Remembering Armando* when you have the text.
 - **The venue.** The invitation says the venue is being arranged and asks people to leave
-  their name for the address. Once it is settled, replace `Guttenberg, New Jersey` in the
+  their name and email for the address. Once it is settled, replace `Guttenberg, New Jersey` in the
   invitation, delete the `.where-note` paragraph, and update `LOCATION` in
   `celebration.ics` and the `address` in the JSON-LD block at the foot of `index.html`.
 - **Attire**, if the family wants to state it — add a line to the invitation.
@@ -100,6 +104,9 @@ For anyone editing this later:
 - No cards, no drop shadows. Content sits on the paper.
 - All text meets WCAG AA against the paper (the lightest, `--ink-soft` at 13px, is 5.3:1),
   and interactive edges use `--rule-firm` to clear the 3:1 required of UI boundaries.
+- `[hidden] { display: none !important }` sits in the reset on purpose. Several elements
+  here are toggled with the `hidden` attribute while also carrying a `display` of their
+  own, and an author `display` silently beats the browser's `[hidden]` rule.
 - One animation only: the hero's entrance on load. It is disabled under
   `prefers-reduced-motion`.
 

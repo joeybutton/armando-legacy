@@ -29,6 +29,9 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* `hidden` must win over any display we set ourselves. */
+[hidden] { display: none !important; }
+
 /* ── Base ──────────────────────────────────────────────────── */
 
 html {
@@ -458,7 +461,6 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 0 2px 2px 0;
 }
 
-.message[hidden] { display: none !important; }
 .message.bad { border-left-color: var(--clay); color: var(--clay); }
 
 .thanks { margin-top: var(--s3); }
