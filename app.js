@@ -172,11 +172,22 @@
       var t = event.changedTouches[0];
       var dx = t.clientX - touchX;
       var dy = t.clientY - touchY;
+      var held = Date.now() - touchAt;
+
       // A real swipe: far enough, mostly sideways, and not a slow drag.
-      if (Math.abs(dx) < 45) return;
-      if (Math.abs(dx) < Math.abs(dy) * 1.5) return;
-      if (Date.now() - touchAt > 700) return;
-      show(dx < 0 ? at + 1 : at - 1);
+      if (Math.abs(dx) >= 45 && Math.abs(dx) >= Math.abs(dy) * 1.5 && held <= 700) {
+        show(dx < 0 ? at + 1 : at - 1);
+        return;
+      }
+
+      // A tap on the photograph itself: its left half goes back, right half
+      // forward. Taps on the backdrop still close, and taps on the buttons
+      // are theirs alone.
+      if (event.target === boxImg &&
+          Math.abs(dx) < 12 && Math.abs(dy) < 12 && held < 400) {
+        var rect = boxImg.getBoundingClientRect();
+        show(t.clientX < rect.left + rect.width / 2 ? at - 1 : at + 1);
+      }
     }, { passive: true });
 
     document.addEventListener('keydown', function (event) {
