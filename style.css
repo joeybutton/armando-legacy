@@ -132,8 +132,8 @@ img { max-width: 100%; height: auto; display: block; }
   aspect-ratio: 3 / 4;
   object-fit: cover;
   margin: 0 auto var(--s4);
-  /* Arch-topped, the way a portrait is framed on a memorial card */
-  border-radius: 999px 999px 3px 3px;
+  /* An oval cameo, framing his face */
+  border-radius: 50%;
 }
 
 .hero-name {
