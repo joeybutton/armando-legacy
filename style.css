@@ -589,10 +589,36 @@ img { max-width: 100%; height: auto; display: block; }
 
 .lightbox :focus-visible { outline-color: #E8E2D8; }
 
+/* On a narrow screen the side buttons cost the photograph its width, so
+   they move to a row along the bottom and the picture takes the full span. */
 @media (max-width: 34rem) {
-  .lightbox { padding: var(--s2); gap: 0.25rem; }
-  .lb-nav { width: 2.25rem; height: 3.25rem; font-size: 1.6rem; }
-  .lb-stage img { max-height: 68vh; }
+  .lightbox {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    align-content: center;
+    gap: var(--s2);
+    padding: var(--s2);
+  }
+
+  .lb-stage {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    align-self: center;
+  }
+
+  .lb-stage img { max-height: 72vh; }
+
+  #lb-prev,
+  #lb-next { grid-row: 2; }
+  #lb-prev { grid-column: 1; justify-self: end; }
+  #lb-next { grid-column: 2; justify-self: start; }
+
+  .lb-nav {
+    width: 3.75rem;
+    height: 2.75rem;
+    font-size: 1.5rem;
+    padding: 0 0 0.2rem;
+  }
 }
 
 /* Swiping drives the lightbox on touch devices, so let the browser
