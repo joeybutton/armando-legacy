@@ -24,7 +24,6 @@
   --s3: 1.5rem;
   --s4: 2.5rem;
   --s5: 4rem;
-  --s6: 6.5rem;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -125,12 +124,12 @@ img { max-width: 100%; height: auto; display: block; }
 
 .hero {
   text-align: center;
-  padding-block: var(--s6) var(--s5);
+  padding-block: var(--s5);
 }
 
 .portrait {
-  width: min(15rem, 62vw);
-  aspect-ratio: 4 / 5;
+  width: min(17rem, 64vw);
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   margin: 0 auto var(--s4);
   /* Arch-topped, the way a portrait is framed on a memorial card */
@@ -166,14 +165,33 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--ink-soft);
 }
 
+/* Two glimpses of his life, beneath his name. */
+.hero-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s2);
+  width: 100%;
+  max-width: 26rem;
+  margin: var(--s4) auto 0;
+}
+
+.hero-pair img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
 /* One orchestrated entrance, hero only. */
 .hero > * {
   animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
 }
-.hero-name  { animation-delay: 0.05s; }
-.hero-dates { animation-delay: 0.22s; }
-.hero-rule  { animation-delay: 0.34s; }
-.hero-line  { animation-delay: 0.42s; }
+.portrait   { animation-delay: 0s; }
+.hero-name  { animation-delay: 0.12s; }
+.hero-dates { animation-delay: 0.26s; }
+.hero-rule  { animation-delay: 0.36s; }
+.hero-line  { animation-delay: 0.44s; }
+.hero-pair  { animation-delay: 0.56s; }
 
 @keyframes rise {
   from { opacity: 0; transform: translateY(0.6rem); }
