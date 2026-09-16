@@ -130,9 +130,8 @@
       at = (i + photos.length) % photos.length;
       var photo = photos[at];
       boxImg.src = photo.full || photo.thumb;
-      boxImg.alt = photo.alt || 'Armando Fernandez';
-      boxCap.textContent = (photo.alt || '') +
-        '  \u00B7  ' + (at + 1) + ' of ' + photos.length;
+      boxImg.alt = '';
+      boxCap.textContent = (at + 1) + ' of ' + photos.length;
     }
 
     function open(i, button) {
@@ -180,10 +179,13 @@
 
           var button = document.createElement('button');
           button.type = 'button';
+          // The photographs carry no descriptions, so the control is labelled
+          // by position; without it the button would have no accessible name.
+          button.setAttribute('aria-label', 'Photograph ' + (i + 1) + ' of ' + photos.length);
 
           var img = document.createElement('img');
           img.src = photo.thumb;
-          img.alt = photo.alt || 'Armando Fernandez';
+          img.alt = '';
           img.loading = 'lazy';
           img.width = 500;
           img.height = 500;

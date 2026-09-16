@@ -89,8 +89,10 @@ work last.
 }
 ```
 
-To add one, produce both sizes and append an entry. Every photograph needs an `alt`; it
-is read out by screen readers and shown as the lightbox caption.
+To add one, produce both sizes and append an entry. The photographs carry no
+descriptions: gallery images are marked decorative (`alt=""`) and each thumbnail button is
+labelled by position instead, so it still has an accessible name. The lightbox caption
+shows only the position in the set.
 
 ```sh
 magick SOURCE -auto-orient -resize 500x500^ -gravity center -extent 500x500 \
