@@ -543,7 +543,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .lb-nav,
-.lb-close {
+.lb-btn {
   font-family: var(--sans);
   color: #E8E2D8;
   background: rgba(255, 255, 255, 0.08);
@@ -555,9 +555,10 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .lb-nav:hover,
-.lb-close:hover {
+.lb-btn:hover {
   background: rgba(255, 255, 255, 0.18);
   border-color: rgba(255, 255, 255, 0.45);
+  color: #E8E2D8;
 }
 
 .lb-nav {
@@ -567,15 +568,24 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 0 0 0.25rem;
 }
 
-.lb-close {
+.lb-controls {
   position: absolute;
   top: var(--s2);
   right: var(--s2);
-  font-size: 1.6rem;
+  z-index: 2;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lb-btn {
+  display: grid;
+  place-items: center;
   width: 2.5rem;
   height: 2.5rem;
-  padding: 0 0 0.2rem;
+  padding: 0;
 }
+
+.lb-close { font-size: 1.6rem; padding-bottom: 0.2rem; }
 
 .lightbox :focus-visible { outline-color: #E8E2D8; }
 
@@ -584,6 +594,10 @@ img { max-width: 100%; height: auto; display: block; }
   .lb-nav { width: 2.25rem; height: 3.25rem; font-size: 1.6rem; }
   .lb-stage img { max-height: 68vh; }
 }
+
+/* Swiping drives the lightbox on touch devices, so let the browser
+   hand us horizontal gestures instead of treating them as panning. */
+.lb-stage { touch-action: pan-y; }
 
 /* ── Footer ────────────────────────────────────────────────── */
 

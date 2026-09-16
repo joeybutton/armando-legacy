@@ -94,6 +94,11 @@ descriptions: gallery images are marked decorative (`alt=""`) and each thumbnail
 labelled by position instead, so it still has an accessible name. The lightbox caption
 shows only the position in the set.
 
+In the lightbox: arrow keys or the side buttons move through the set, a horizontal swipe
+does the same on a touch screen, and the download button saves the full-size file as
+`armando-fernandez-<position>.jpg`. A swipe has to travel 45px, be mostly sideways, and
+finish inside 700ms, so a hesitant touch or a vertical drag does not jump photographs.
+
 ```sh
 magick SOURCE -auto-orient -resize 500x500^ -gravity center -extent 500x500 \
   -strip -quality 78 images/gallery/thumb/NAME.jpg

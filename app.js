@@ -122,6 +122,7 @@
     var box = document.getElementById('lightbox');
     var boxImg = document.getElementById('lb-img');
     var boxCap = document.getElementById('lb-caption');
+    var boxDl = document.getElementById('lb-download');
     var photos = [];
     var at = 0;
     var opener = null;
@@ -132,6 +133,8 @@
       boxImg.src = photo.full || photo.thumb;
       boxImg.alt = '';
       boxCap.textContent = (at + 1) + ' of ' + photos.length;
+      boxDl.href = photo.full || photo.thumb;
+      boxDl.setAttribute('download', 'armando-fernandez-' + (at + 1) + '.jpg');
     }
 
     function open(i, button) {
@@ -157,6 +160,24 @@
     box.addEventListener('click', function (event) {
       if (event.target === box) close();
     });
+
+    var touchX = 0, touchY = 0, touchAt = 0;
+
+    box.addEventListener('touchstart', function (event) {
+      var t = event.changedTouches[0];
+      touchX = t.clientX; touchY = t.clientY; touchAt = Date.now();
+    }, { passive: true });
+
+    box.addEventListener('touchend', function (event) {
+      var t = event.changedTouches[0];
+      var dx = t.clientX - touchX;
+      var dy = t.clientY - touchY;
+      // A real swipe: far enough, mostly sideways, and not a slow drag.
+      if (Math.abs(dx) < 45) return;
+      if (Math.abs(dx) < Math.abs(dy) * 1.5) return;
+      if (Date.now() - touchAt > 700) return;
+      show(dx < 0 ? at + 1 : at - 1);
+    }, { passive: true });
 
     document.addEventListener('keydown', function (event) {
       if (box.hidden) return;
