@@ -75,9 +75,7 @@ That can take up to an hour after DNS propagates.
 
 Photographs live in two sizes: `images/gallery/thumb/` (500x500 squares for the grid) and
 `images/gallery/full/` (1200px longest side for the lightbox). `photos.json` lists them
-**in display order**. That order is currently shuffled — one pass with a fixed seed, so it
-is stable for every visitor rather than changing per page load. Rearranging the entries in
-the file is all it takes to impose a deliberate order later.
+**in display order**. That order is currently shuffled — one pass with a fixed seed, so it is stable for every visitor rather than changing per page load.
 
 ```json
 {

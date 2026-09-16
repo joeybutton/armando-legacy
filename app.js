@@ -6,8 +6,12 @@
   'use strict';
 
   var PLACEHOLDER = 'YOUR_FORM_ID';
-  var MAX_PHOTOS = 5;
+  // Formspree's own caps: 10 files per submission, 25 MB each, 100 MB per
+  // request. Exceeding any of them rejects the whole submission, RSVP and
+  // all, so they are checked here before anything is sent.
+  var MAX_PHOTOS = 10;
   var MAX_BYTES = 25 * 1024 * 1024;
+  var MAX_TOTAL = 90 * 1024 * 1024;
 
   /* Mark the section currently in view in the masthead nav. */
   function navHighlight() {
@@ -57,14 +61,22 @@
     function photoProblem() {
       if (!photos || !photos.files || !photos.files.length) return null;
       if (photos.files.length > MAX_PHOTOS) {
-        return 'Please choose no more than ' + MAX_PHOTOS + ' pictures. You have chosen ' +
-               photos.files.length + '.';
+        return 'Please choose no more than ' + MAX_PHOTOS + ' pictures at a time. You have ' +
+               'chosen ' + photos.files.length + '. You are very welcome to send the rest ' +
+               'in a second reply.';
       }
+      var total = 0;
       for (var i = 0; i < photos.files.length; i++) {
+        total += photos.files[i].size;
         if (photos.files[i].size > MAX_BYTES) {
           return '\u201C' + photos.files[i].name + '\u201D is larger than 25 MB. ' +
                  'Please choose a smaller version of it.';
         }
+      }
+      if (total > MAX_TOTAL) {
+        return 'Those pictures come to ' + Math.round(total / 1048576) + ' MB together, ' +
+               'which is more than can be sent at once. Please send them across a couple ' +
+               'of replies.';
       }
       return null;
     }
@@ -108,7 +120,11 @@
         .catch(function () {
           submit.disabled = false;
           submit.textContent = 'Send RSVP';
-          say('That RSVP did not go through. Try once more, or call the family directly.', true);
+          say(photos && photos.files && photos.files.length
+            ? 'That RSVP did not go through. Large pictures can time out on a slow ' +
+              'connection \u2014 try again with fewer, or send the reply on its own and ' +
+              'the pictures separately.'
+            : 'That RSVP did not go through. Try once more, or call the family directly.', true);
         });
     });
   }
