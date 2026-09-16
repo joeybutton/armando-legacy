@@ -299,6 +299,14 @@ img { max-width: 100%; height: auto; display: block; }
   text-underline-offset: 0.18em;
 }
 
+.programme {
+  max-width: 42ch;
+  margin: var(--s3) auto 0;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
 .actions {
   display: grid;
   gap: var(--s2);
