@@ -478,26 +478,111 @@ img { max-width: 100%; height: auto; display: block; }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
-  gap: var(--s2);
-  margin-top: var(--s3);
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: var(--s1);
+  margin-top: var(--s4);
 }
 
-.gallery figure { margin: 0; }
+.gallery button {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 2px;
+  overflow: hidden;
+  line-height: 0;
+}
 
 .gallery img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
+  transition: opacity 0.2s;
+}
+
+.gallery button:hover img { opacity: 0.82; }
+
+/* ── Lightbox ──────────────────────────────────────────────── */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--s1);
+  padding: var(--s3);
+  background: rgba(23, 21, 18, 0.95);
+}
+
+.lb-stage {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+.lb-stage img {
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  object-fit: contain;
   border-radius: 2px;
 }
 
-.gallery figcaption {
+.lb-stage figcaption {
   font-family: var(--sans);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   line-height: 1.5;
-  color: var(--ink-soft);
-  padding-top: var(--s1);
+  color: #CFC8BC;
+  text-align: center;
+  max-width: 44ch;
+}
+
+.lb-nav,
+.lb-close {
+  font-family: var(--sans);
+  color: #E8E2D8;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 3px;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.18s, border-color 0.18s;
+}
+
+.lb-nav:hover,
+.lb-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.lb-nav {
+  font-size: 2rem;
+  width: 2.75rem;
+  height: 4rem;
+  padding: 0 0 0.25rem;
+}
+
+.lb-close {
+  position: absolute;
+  top: var(--s2);
+  right: var(--s2);
+  font-size: 1.6rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0 0.2rem;
+}
+
+.lightbox :focus-visible { outline-color: #E8E2D8; }
+
+@media (max-width: 34rem) {
+  .lightbox { padding: var(--s2); gap: 0.25rem; }
+  .lb-nav { width: 2.25rem; height: 3.25rem; font-size: 1.6rem; }
+  .lb-stage img { max-height: 68vh; }
 }
 
 /* ── Footer ────────────────────────────────────────────────── */

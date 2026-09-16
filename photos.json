@@ -1,3 +1,264 @@
 {
-  "photos": []
+  "photos": [
+    {
+      "thumb": "images/gallery/thumb/wedding-three.jpg",
+      "full": "images/gallery/full/wedding-three.jpg",
+      "alt": "Armando with the bride and groom at Paige and Joey's wedding"
+    },
+    {
+      "thumb": "images/gallery/thumb/wedding-family.jpg",
+      "full": "images/gallery/full/wedding-family.jpg",
+      "alt": "Armando with family at Paige and Joey's wedding"
+    },
+    {
+      "thumb": "images/gallery/thumb/wedding-group.jpg",
+      "full": "images/gallery/full/wedding-group.jpg",
+      "alt": "Armando and family gathered at Paige and Joey's wedding"
+    },
+    {
+      "thumb": "images/gallery/thumb/wedding-walking.jpg",
+      "full": "images/gallery/full/wedding-walking.jpg",
+      "alt": "Armando walking arm in arm at Paige and Joey's wedding"
+    },
+    {
+      "thumb": "images/gallery/thumb/graduation-diploma.jpg",
+      "full": "images/gallery/full/graduation-diploma.jpg",
+      "alt": "Armando with a graduate holding her diploma"
+    },
+    {
+      "thumb": "images/gallery/thumb/graduation-stole.jpg",
+      "full": "images/gallery/full/graduation-stole.jpg",
+      "alt": "Armando with his daughter on her graduation day"
+    },
+    {
+      "thumb": "images/gallery/thumb/birthday-cake.jpg",
+      "full": "images/gallery/full/birthday-cake.jpg",
+      "alt": "Armando beside a birthday cake lit with candles"
+    },
+    {
+      "thumb": "images/gallery/thumb/monastery.jpg",
+      "full": "images/gallery/full/monastery.jpg",
+      "alt": "Armando with family outside a monastery"
+    },
+    {
+      "thumb": "images/gallery/thumb/times-square.jpg",
+      "full": "images/gallery/full/times-square.jpg",
+      "alt": "Armando with family in Times Square"
+    },
+    {
+      "thumb": "images/gallery/thumb/swimming.jpg",
+      "full": "images/gallery/full/swimming.jpg",
+      "alt": "Armando swimming in the sea with family"
+    },
+    {
+      "thumb": "images/gallery/thumb/hiking-three.jpg",
+      "full": "images/gallery/full/hiking-three.jpg",
+      "alt": "Armando hiking with family below a mountain"
+    },
+    {
+      "thumb": "images/gallery/thumb/overlook-three.jpg",
+      "full": "images/gallery/full/overlook-three.jpg",
+      "alt": "Armando with family at a mountain overlook"
+    },
+    {
+      "thumb": "images/gallery/thumb/bench.jpg",
+      "full": "images/gallery/full/bench.jpg",
+      "alt": "Armando sitting with family on a bench"
+    },
+    {
+      "thumb": "images/gallery/thumb/painting-studio.jpg",
+      "full": "images/gallery/full/painting-studio.jpg",
+      "alt": "Armando with Khalli at a painting studio"
+    },
+    {
+      "thumb": "images/gallery/thumb/golf.jpg",
+      "full": "images/gallery/full/golf.jpg",
+      "alt": "Armando on a golf course"
+    },
+    {
+      "thumb": "images/gallery/thumb/paige-sign-pointing.jpg",
+      "full": "images/gallery/full/paige-sign-pointing.jpg",
+      "alt": "Armando pointing at a shop sign reading Paige"
+    },
+    {
+      "thumb": "images/gallery/thumb/paige-sign-waving.jpg",
+      "full": "images/gallery/full/paige-sign-waving.jpg",
+      "alt": "Armando beside a shop sign reading Paige"
+    },
+    {
+      "thumb": "images/gallery/thumb/barbershop.jpg",
+      "full": "images/gallery/full/barbershop.jpg",
+      "alt": "Armando in a barber's chair"
+    },
+    {
+      "thumb": "images/gallery/thumb/skiers-three.jpg",
+      "full": "images/gallery/full/skiers-three.jpg",
+      "alt": "Armando skiing with family"
+    },
+    {
+      "thumb": "images/gallery/thumb/skiers-two.jpg",
+      "full": "images/gallery/full/skiers-two.jpg",
+      "alt": "Armando with family on a ski slope"
+    },
+    {
+      "thumb": "images/gallery/thumb/back-bowls.jpg",
+      "full": "images/gallery/full/back-bowls.jpg",
+      "alt": "Armando skiing the back bowls"
+    },
+    {
+      "thumb": "images/gallery/thumb/mt-washington.jpg",
+      "full": "images/gallery/full/mt-washington.jpg",
+      "alt": "Armando with family at the Mount Washington summit sign"
+    },
+    {
+      "thumb": "images/gallery/thumb/summit-two.jpg",
+      "full": "images/gallery/full/summit-two.jpg",
+      "alt": "Armando with family on a summit ridge"
+    },
+    {
+      "thumb": "images/gallery/thumb/key-west.jpg",
+      "full": "images/gallery/full/key-west.jpg",
+      "alt": "Armando at the southernmost point in Key West"
+    },
+    {
+      "thumb": "images/gallery/thumb/cyclists.jpg",
+      "full": "images/gallery/full/cyclists.jpg",
+      "alt": "Armando with a group of cyclists above a lake"
+    },
+    {
+      "thumb": "images/gallery/thumb/caving.jpg",
+      "full": "images/gallery/full/caving.jpg",
+      "alt": "Armando in caving gear with companions"
+    },
+    {
+      "thumb": "images/gallery/thumb/trail-two.jpg",
+      "full": "images/gallery/full/trail-two.jpg",
+      "alt": "Armando hiking a wooded trail"
+    },
+    {
+      "thumb": "images/gallery/thumb/family-1960s.jpg",
+      "full": "images/gallery/full/family-1960s.jpg",
+      "alt": "A family photograph from Armando's childhood"
+    },
+    {
+      "thumb": "images/gallery/thumb/cuba-1965.jpg",
+      "full": "images/gallery/full/cuba-1965.jpg",
+      "alt": "Armando wearing a shirt reading Cuba 1965"
+    },
+    {
+      "thumb": "images/gallery/thumb/cave-arch.jpg",
+      "full": "images/gallery/full/cave-arch.jpg",
+      "alt": "Armando standing in a cave arch"
+    },
+    {
+      "thumb": "images/gallery/thumb/valley-pointing.jpg",
+      "full": "images/gallery/full/valley-pointing.jpg",
+      "alt": "Armando pointing out across a green valley"
+    },
+    {
+      "thumb": "images/gallery/thumb/wave.jpg",
+      "full": "images/gallery/full/wave.jpg",
+      "alt": "Armando with arms outstretched in the sea spray"
+    },
+    {
+      "thumb": "images/gallery/thumb/waterfall.jpg",
+      "full": "images/gallery/full/waterfall.jpg",
+      "alt": "Armando before a waterfall"
+    },
+    {
+      "thumb": "images/gallery/thumb/valley-green.jpg",
+      "full": "images/gallery/full/valley-green.jpg",
+      "alt": "Armando on a green hillside"
+    },
+    {
+      "thumb": "images/gallery/thumb/coastal-cliff.jpg",
+      "full": "images/gallery/full/coastal-cliff.jpg",
+      "alt": "Armando on a coastal cliff trail"
+    },
+    {
+      "thumb": "images/gallery/thumb/black-sand.jpg",
+      "full": "images/gallery/full/black-sand.jpg",
+      "alt": "Armando on a black sand beach"
+    },
+    {
+      "thumb": "images/gallery/thumb/reef.jpg",
+      "full": "images/gallery/full/reef.jpg",
+      "alt": "Armando beside turquoise water"
+    },
+    {
+      "thumb": "images/gallery/thumb/pier.jpg",
+      "full": "images/gallery/full/pier.jpg",
+      "alt": "Armando on a long curving pier"
+    },
+    {
+      "thumb": "images/gallery/thumb/cliff-overlook.jpg",
+      "full": "images/gallery/full/cliff-overlook.jpg",
+      "alt": "Armando on a clifftop above a river valley"
+    },
+    {
+      "thumb": "images/gallery/thumb/red-rocks.jpg",
+      "full": "images/gallery/full/red-rocks.jpg",
+      "alt": "Armando resting on red rock"
+    },
+    {
+      "thumb": "images/gallery/thumb/garden.jpg",
+      "full": "images/gallery/full/garden.jpg",
+      "alt": "Armando in a garden of palms"
+    },
+    {
+      "thumb": "images/gallery/thumb/aspens.jpg",
+      "full": "images/gallery/full/aspens.jpg",
+      "alt": "Armando among golden aspens"
+    },
+    {
+      "thumb": "images/gallery/thumb/autumn-trail.jpg",
+      "full": "images/gallery/full/autumn-trail.jpg",
+      "alt": "Armando on an autumn mountain trail"
+    },
+    {
+      "thumb": "images/gallery/thumb/cairn.jpg",
+      "full": "images/gallery/full/cairn.jpg",
+      "alt": "Armando beside a rock cairn"
+    },
+    {
+      "thumb": "images/gallery/thumb/summit-cross.jpg",
+      "full": "images/gallery/full/summit-cross.jpg",
+      "alt": "Armando at a summit cross at dusk"
+    },
+    {
+      "thumb": "images/gallery/thumb/red-jacket.jpg",
+      "full": "images/gallery/full/red-jacket.jpg",
+      "alt": "Armando skiing in a red jacket"
+    },
+    {
+      "thumb": "images/gallery/thumb/ski-lift.jpg",
+      "full": "images/gallery/full/ski-lift.jpg",
+      "alt": "Armando on a snowy mountainside"
+    },
+    {
+      "thumb": "images/gallery/thumb/mountain-view.jpg",
+      "full": "images/gallery/full/mountain-view.jpg",
+      "alt": "A mountain view from one of Armando's walks"
+    },
+    {
+      "thumb": "images/gallery/thumb/boat.jpg",
+      "full": "images/gallery/full/boat.jpg",
+      "alt": "Armando at the wheel of a boat"
+    },
+    {
+      "thumb": "images/gallery/thumb/table.jpg",
+      "full": "images/gallery/full/table.jpg",
+      "alt": "Armando at the table with a meal laid out"
+    },
+    {
+      "thumb": "images/gallery/thumb/at-work.jpg",
+      "full": "images/gallery/full/at-work.jpg",
+      "alt": "Armando at work in the operating room"
+    },
+    {
+      "thumb": "images/gallery/thumb/portrait-blazer.jpg",
+      "full": "images/gallery/full/portrait-blazer.jpg",
+      "alt": "A portrait of Armando"
+    }
+  ]
 }

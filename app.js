@@ -113,11 +113,58 @@
     });
   }
 
-  /* Reveal the photographs section once photos.json has entries. */
+  /* Build the gallery from photos.json, with a lightbox for looking closer. */
   function gallery() {
     var section = document.getElementById('photographs');
     var grid = document.getElementById('gallery');
     if (!section || !grid || typeof window.fetch !== 'function') return;
+
+    var box = document.getElementById('lightbox');
+    var boxImg = document.getElementById('lb-img');
+    var boxCap = document.getElementById('lb-caption');
+    var photos = [];
+    var at = 0;
+    var opener = null;
+
+    function show(i) {
+      at = (i + photos.length) % photos.length;
+      var photo = photos[at];
+      boxImg.src = photo.full || photo.thumb;
+      boxImg.alt = photo.alt || 'Armando Fernandez';
+      boxCap.textContent = (photo.alt || '') +
+        '  \u00B7  ' + (at + 1) + ' of ' + photos.length;
+    }
+
+    function open(i, button) {
+      opener = button;
+      show(i);
+      box.hidden = false;
+      document.body.style.overflow = 'hidden';
+      document.getElementById('lb-close').focus();
+    }
+
+    function close() {
+      box.hidden = true;
+      boxImg.removeAttribute('src');
+      document.body.style.overflow = '';
+      if (opener) opener.focus();
+    }
+
+    document.getElementById('lb-close').addEventListener('click', close);
+    document.getElementById('lb-prev').addEventListener('click', function () { show(at - 1); });
+    document.getElementById('lb-next').addEventListener('click', function () { show(at + 1); });
+
+    // Clicking the backdrop closes; clicking the photograph itself does not.
+    box.addEventListener('click', function (event) {
+      if (event.target === box) close();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (box.hidden) return;
+      if (event.key === 'Escape') close();
+      else if (event.key === 'ArrowLeft') show(at - 1);
+      else if (event.key === 'ArrowRight') show(at + 1);
+    });
 
     fetch('photos.json')
       .then(function (response) {
@@ -125,27 +172,25 @@
         return response.json();
       })
       .then(function (data) {
-        var photos = (data && data.photos) || [];
+        photos = (data && data.photos) || [];
         if (!photos.length) return;
 
-        photos.forEach(function (photo) {
-          if (!photo.src) return;
+        photos.forEach(function (photo, i) {
+          if (!photo.thumb) return;
 
-          var figure = document.createElement('figure');
+          var button = document.createElement('button');
+          button.type = 'button';
 
           var img = document.createElement('img');
-          img.src = photo.src;
+          img.src = photo.thumb;
           img.alt = photo.alt || 'Armando Fernandez';
           img.loading = 'lazy';
-          figure.appendChild(img);
+          img.width = 500;
+          img.height = 500;
+          button.appendChild(img);
 
-          if (photo.caption) {
-            var caption = document.createElement('figcaption');
-            caption.textContent = photo.caption;
-            figure.appendChild(caption);
-          }
-
-          grid.appendChild(figure);
+          button.addEventListener('click', function () { open(i, button); });
+          grid.appendChild(button);
         });
 
         section.hidden = false;

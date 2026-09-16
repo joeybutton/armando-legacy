@@ -14,7 +14,7 @@ Static site, no build step, hosted on GitHub Pages at
 | `index.html` | The entire page: hero, remembrance, the invitation, the RSVP form, photographs |
 | `style.css` | All styling. The tokens at the top control colour, type, and spacing |
 | `app.js` | Nav highlighting, RSVP submission, photo gallery. Enhancement only — the page works without it |
-| `photos.json` | Photo list. The Photographs section stays hidden while this is empty |
+| `photos.json` | Ordered photo list driving the gallery. The Photographs section stays hidden while this is empty |
 | `celebration.ics` | The "Save the date" download |
 | `CNAME` | Custom domain for GitHub Pages |
 | `.nojekyll` | Serve files as-is, without Jekyll processing |
@@ -73,19 +73,35 @@ That can take up to an hour after DNS propagates.
 
 ## Adding photographs
 
-Put the files in `images/gallery/`, then list them in `photos.json`:
+Photographs live in two sizes: `images/gallery/thumb/` (500x500 squares for the grid) and
+`images/gallery/full/` (1200px longest side for the lightbox). `photos.json` lists them
+**in display order**, and that order is deliberate: family and milestones first, then the
+two photographs that reach furthest back, then the travelling and the mountains, and his
+work last.
 
 ```json
 {
   "photos": [
-    { "src": "images/gallery/armando-shore.jpg", "alt": "Armando at the shore", "caption": "Summer, 1998" },
-    { "src": "images/gallery/armando-kids.jpg",  "alt": "Armando with Justin and Paige" }
+    { "thumb": "images/gallery/thumb/wedding-three.jpg",
+      "full":  "images/gallery/full/wedding-three.jpg",
+      "alt":   "Armando with the bride and groom at Paige and Joey's wedding" }
   ]
 }
 ```
 
-`alt` and `caption` are optional. The Photographs section appears on its own as soon as
-there is at least one entry.
+To add one, produce both sizes and append an entry. Every photograph needs an `alt`; it
+is read out by screen readers and shown as the lightbox caption.
+
+```sh
+magick SOURCE -auto-orient -resize 500x500^ -gravity center -extent 500x500 \
+  -strip -quality 78 images/gallery/thumb/NAME.jpg
+magick SOURCE -auto-orient -resize 1200x1200\> -strip -quality 80 \
+  images/gallery/full/NAME.jpg
+```
+
+`-auto-orient` bakes in any EXIF rotation, which phone photographs rely on, and `-strip`
+removes the remaining EXIF **including GPS coordinates** — worth keeping, since these go
+on a public page.
 
 ## Design notes
 
