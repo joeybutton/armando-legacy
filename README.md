@@ -1,8 +1,9 @@
 # fernandez-legacy.family
 
-A celebration of the life of **Armando Fernandez** — June 3, 1954 – September 13, 2026.
+In loving memory of **Armando Fernandez** — June 3, 1954 – September 13, 2026.
 
-The gathering is **Saturday, September 26, 2026, 3:00–7:00 PM, in Guttenberg, New Jersey.**
+A remembrance page: the photographs, and a form where family and friends can send the
+family their own photographs and memories of Armando.
 
 Static site, no build step, hosted on GitHub Pages at
 [fernandez-legacy.family](https://fernandez-legacy.family/).
@@ -11,27 +12,26 @@ Static site, no build step, hosted on GitHub Pages at
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The entire page: hero, remembrance, the invitation, the RSVP form, photographs |
+| `index.html` | The entire page: hero, remembrance, photographs, the share-a-memory form |
 | `style.css` | All styling. The tokens at the top control colour, type, and spacing |
-| `app.js` | Nav highlighting, RSVP submission, photo gallery. Enhancement only — the page works without it |
+| `app.js` | Nav highlighting, memory submission, photo gallery. Enhancement only — the page works without it |
 | `photos.json` | Ordered photo list driving the gallery. The Photographs section stays hidden while this is empty |
-| `celebration.ics` | The "Save the date" download |
 | `CNAME` | Custom domain for GitHub Pages |
 | `.nojekyll` | Serve files as-is, without Jekyll processing |
 
-## The RSVP form
+## The share-a-memory form
 
-Live, posting to Formspree form `mzezpell`, and verified end to end.
+Live, posting to Formspree form `mzezpell`.
 
-It collects a **name**, an **email**, **how many people are coming**, and an optional
-**memory of Armando**. Each RSVP is emailed to you and kept in the Formspree dashboard.
-The field is named `email` so Formspree sets `Reply-To` — you can answer a guest by
-replying to the notification.
+It collects a **name**, an **email**, a **memory of Armando**, and **photographs** (up to
+10 per submission, 25 MB each — Formspree's own caps, checked in `app.js` before anything
+is sent). Each submission is emailed to you and kept in the Formspree dashboard, with the
+photographs attached. The field is named `email` so Formspree sets `Reply-To` — you can
+thank a sender, or ask about a picture, by replying to the notification.
 
-Name, email and head count are required; the memory is not. To make email optional
-instead, drop `required` from the `#f-email` input in `index.html` — but note the
-invitation promises to email the venue address, so without it there is no way to reach
-that guest.
+Name and email are required. The memory and the photographs are each optional, but with
+JavaScript on, the form refuses a submission that has neither. To make email optional,
+drop `required` from the `#f-email` input in `index.html`.
 
 The free tier allows about 50 submissions a month. If more are expected, upgrade before
 sharing the link widely, because submissions over the cap are rejected.
@@ -64,10 +64,8 @@ That can take up to an hour after DNS propagates.
 - **A photograph of Armando.** Save it to `images/armando-fernandez/portrait.jpg` and
   uncomment the `<img class="portrait">` line in the hero. It is framed with an arched
   top; a vertical portrait suits it best.
-- **The remembrance.** The page currently says a fuller remembrance is still being
-  written, which is honest and reads fine in the meantime. Replace the two paragraphs and
-  the italic note under *Remembering Armando* when you have the text.
-- **Attire**, if the family wants to state it — add a line to the invitation.
+- **The remembrance.** Replace or extend the paragraphs under *Remembering Armando*
+  when you have more text. Memories sent through the form can be added here too.
 - **A share image** at `images/armando-fernandez/share.jpg` (1200×630), then uncomment the
   `og:image` meta tag. This controls the preview when the link is sent by text or posted.
 
@@ -117,8 +115,9 @@ For anyone editing this later:
   text — the nav, field hints, the venue note.
 - **One accent**, the deep olive `--olive`, used only for actions, the rule under
   Armando's name, and focus rings. Adding a second accent will cheapen it.
-- **The date is the one loud thing on the page.** Everything else stays quiet so it lands.
-  If something new needs emphasis, take emphasis away from somewhere else.
+- **Armando's name and the photographs are the loud things on the page.** Everything else
+  stays quiet so they land. If something new needs emphasis, take emphasis away from
+  somewhere else.
 - No cards, no drop shadows. Content sits on the paper.
 - All text meets WCAG AA against the paper (the lightest, `--ink-soft` at 13px, is 5.3:1),
   and interactive edges use `--rule-firm` to clear the 3:1 required of UI boundaries.

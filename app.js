@@ -1,13 +1,13 @@
-/* Armando Fernandez — a celebration of life
+/* Armando Fernandez — in loving memory
    Everything here is enhancement. With JavaScript off, the page reads in full and
-   the RSVP form still posts to Formspree the ordinary way. */
+   the memory form still posts to Formspree the ordinary way. */
 
 (function () {
   'use strict';
 
   var PLACEHOLDER = 'YOUR_FORM_ID';
   // Formspree's own caps: 10 files per submission, 25 MB each, 100 MB per
-  // request. Exceeding any of them rejects the whole submission, RSVP and
+  // request. Exceeding any of them rejects the whole submission, memory and
   // all, so they are checked here before anything is sent.
   var MAX_PHOTOS = 10;
   var MAX_BYTES = 25 * 1024 * 1024;
@@ -41,14 +41,16 @@
     targets.forEach(function (t) { observer.observe(t); });
   }
 
-  /* Submit the RSVP without leaving the page. */
-  function rsvpForm() {
-    var form = document.getElementById('rsvp-form');
+  /* Send a memory, photographs, or both, without leaving the page. */
+  function shareForm() {
+    var form = document.getElementById('share-form');
     if (!form) return;
 
     var message = document.getElementById('f-message');
     var thanks = document.getElementById('thanks');
     var submit = document.getElementById('f-submit');
+    var memory = document.getElementById('f-memory');
+    var photos = document.getElementById('f-photos');
 
     function say(text, bad) {
       message.textContent = text;
@@ -56,10 +58,12 @@
       message.hidden = false;
     }
 
-    var photos = document.getElementById('f-photos');
+    function hasPhotos() {
+      return !!(photos && photos.files && photos.files.length);
+    }
 
     function photoProblem() {
-      if (!photos || !photos.files || !photos.files.length) return null;
+      if (!hasPhotos()) return null;
       if (photos.files.length > MAX_PHOTOS) {
         return 'Please choose no more than ' + MAX_PHOTOS + ' pictures at a time. You have ' +
                'chosen ' + photos.files.length + '. You are very welcome to send the rest ' +
@@ -69,7 +73,7 @@
       for (var i = 0; i < photos.files.length; i++) {
         total += photos.files[i].size;
         if (photos.files[i].size > MAX_BYTES) {
-          return '\u201C' + photos.files[i].name + '\u201D is larger than 25 MB. ' +
+          return '“' + photos.files[i].name + '” is larger than 25 MB. ' +
                  'Please choose a smaller version of it.';
         }
       }
@@ -89,6 +93,14 @@
         return;
       }
 
+      // Either field on its own is welcome, but an empty envelope is not.
+      if (!hasPhotos() && !(memory && memory.value.trim())) {
+        event.preventDefault();
+        say('Please write a memory, choose a photograph, or both.', true);
+        if (memory) memory.focus();
+        return;
+      }
+
       var problem = photoProblem();
       if (problem) {
         event.preventDefault();
@@ -102,9 +114,9 @@
       event.preventDefault();
       submit.disabled = true;
       submit.textContent = 'Sending';
-      say(photos && photos.files && photos.files.length
-        ? 'Sending your RSVP and pictures… this can take a moment.'
-        : 'Sending your RSVP…');
+      say(hasPhotos()
+        ? 'Sending your memory and pictures… this can take a moment.'
+        : 'Sending your memory…');
 
       fetch(form.action, {
         method: 'POST',
@@ -119,12 +131,12 @@
         })
         .catch(function () {
           submit.disabled = false;
-          submit.textContent = 'Send RSVP';
-          say(photos && photos.files && photos.files.length
-            ? 'That RSVP did not go through. Large pictures can time out on a slow ' +
-              'connection \u2014 try again with fewer, or send the reply on its own and ' +
+          submit.textContent = 'Send to the family';
+          say(hasPhotos()
+            ? 'That did not go through. Large pictures can time out on a slow ' +
+              'connection — try again with fewer, or send the memory on its own and ' +
               'the pictures separately.'
-            : 'That RSVP did not go through. Try once more, or call the family directly.', true);
+            : 'That did not go through. Please try once more.', true);
         });
     });
   }
@@ -251,6 +263,6 @@
   }
 
   navHighlight();
-  rsvpForm();
+  shareForm();
   gallery();
 })();

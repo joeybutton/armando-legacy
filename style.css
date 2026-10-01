@@ -234,96 +234,6 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--ink-soft);
 }
 
-/* ── Invitation ────────────────────────────────────────────── */
-
-.invitation {
-  padding: var(--s5) var(--s3);
-  background: var(--paper-deep);
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  text-align: center;
-}
-
-.invitation h2 {
-  font-size: 1.1875rem;
-  font-weight: 350;
-  font-style: italic;
-  color: var(--ink-soft);
-  margin-bottom: var(--s4);
-}
-
-.when { display: block; }
-.when time { display: block; font-style: normal; }
-
-.when-day {
-  display: block;
-  font-size: 1.0625rem;
-  color: var(--ink-soft);
-  letter-spacing: 0.08em;
-}
-
-.when-date {
-  display: block;
-  font-size: clamp(2.25rem, 9vw, 3.5rem);
-  font-weight: 300;
-  line-height: 1.1;
-  margin-block: 0.15em 0.05em;
-}
-
-.when-year {
-  display: block;
-  font-size: 1.0625rem;
-  color: var(--ink-soft);
-  letter-spacing: 0.18em;
-}
-
-.invitation-rule {
-  width: 2.75rem;
-  height: 0;
-  margin: var(--s4) auto;
-  border: 0;
-  border-top: 1px solid var(--rule);
-}
-
-.where {
-  font-size: 1.125rem;
-  max-width: none;
-}
-
-.where b { font-weight: 400; font-size: 1.1875rem; }
-
-/* Underlined, so the venue and address don't rely on colour alone. */
-.where a {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
-}
-
-.programme {
-  max-width: 42ch;
-  margin: var(--s3) auto 0;
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  color: var(--ink);
-}
-
-.actions {
-  display: grid;
-  gap: var(--s2);
-  max-width: 18rem;
-  margin: var(--s4) auto 0;
-}
-
-.actions .btn { text-align: center; }
-
-@media (min-width: 26rem) {
-  .actions {
-    grid-auto-flow: column;
-    justify-content: center;
-    max-width: none;
-  }
-}
-
 /* ── Buttons ───────────────────────────────────────────────── */
 
 .btn {
@@ -349,21 +259,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 .btn:disabled { opacity: 0.5; cursor: default; }
 
-.btn-quiet {
-  background: transparent;
-  border-color: var(--rule-firm);
-  color: var(--ink);
-}
+/* ── Share a memory ────────────────────────────────────────── */
 
-.btn-quiet:hover {
-  background: transparent;
-  border-color: var(--ink-soft);
-  color: var(--ink);
-}
-
-/* ── RSVP card ─────────────────────────────────────────────── */
-
-.rsvp {
+.share-form {
   max-width: 34rem;
   margin-top: var(--s4);
   display: grid;
@@ -449,8 +347,6 @@ img { max-width: 100%; height: auto; display: block; }
   opacity: 0.65;
   font-style: italic;
 }
-
-.field-count { max-width: 7rem; }
 
 .hint {
   font-family: var(--sans);
@@ -656,8 +552,3 @@ img { max-width: 100%; height: auto; display: block; }
   margin-top: var(--s1);
 }
 
-/* ── Wider screens ─────────────────────────────────────────── */
-
-@media (min-width: 40rem) {
-  .invitation { padding-inline: var(--s5); }
-}

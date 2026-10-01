@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Armando Fernandez &mdash; A Celebration of Life</title>
-<meta name="description" content="A celebration of the life of Armando Fernandez, June 3, 1954 – September 13, 2026. Saturday, September 26, 2026, 3:00–7:00 in the afternoon, at Barquin Funeral Home, 7101 Broadway, Guttenberg, NJ 07093.">
+<title>Armando Fernandez &mdash; In Loving Memory</title>
+<meta name="description" content="In loving memory of Armando Fernandez, June 3, 1954 – September 13, 2026. Photographs and stories shared by family and friends, with room to add your own.">
 <link rel="canonical" href="https://fernandez-legacy.family/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Armando Fernandez — A Celebration of Life">
-<meta property="og:description" content="Saturday, September 26, 2026. Three until seven in the afternoon, at Barquin Funeral Home, 7101 Broadway, Guttenberg, NJ.">
+<meta property="og:title" content="Armando Fernandez — In Loving Memory">
+<meta property="og:description" content="Photographs and stories of Armando Fernandez, shared by family and friends. If you have one of your own, the family would love to have it.">
 <meta property="og:url" content="https://fernandez-legacy.family/">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Add images/armando-fernandez/share.jpg (1200×630) and uncomment for link previews -->
@@ -27,7 +27,7 @@
   <nav>
     <a href="#remembering">Remembering</a>
     <a href="#photographs">Photographs</a>
-    <a href="#rsvp">RSVP</a>
+    <a href="#share">Share a memory</a>
   </nav>
 </header>
 
@@ -41,7 +41,7 @@
     <h1 class="hero-name">Armando Fernandez</h1>
     <p class="hero-dates">June 3, 1954 &ndash; September 13, 2026</p>
     <hr class="hero-rule">
-    <p class="hero-line">A celebration of life</p>
+    <p class="hero-line">In loving memory</p>
 
     <div class="hero-pair">
       <img src="images/armando-fernandez/skiing.jpg"
@@ -66,57 +66,36 @@
       survived by his brother, Alfredo, his two children Justin and Paige, his significant
       other Khalli Harris, and her three children Katherine, Kohen and Alexis.</p>
 
-    <p>His family invites everyone who knew him to come together later this month &mdash;
-      to eat, to talk, and to tell the stories that are worth telling twice.</p>
+    <p>This page is a place to keep him close &mdash; the photographs, and the stories
+      that are worth telling twice.</p>
 
-    <p class="note">A fuller remembrance is still being written. If you have a photograph
-      or a story you would like included here, send it along with your RSVP below.</p>
+    <p class="note">If you have a photograph of Armando, or a story about him, the family
+      would love to have it. There is room for both <a href="#share">below</a>.</p>
 
   </section>
 
-  <!-- ── The gathering ────────────────────────────────────────── -->
-  <section class="wrap section" id="gathering">
-    <div class="invitation">
-      <h2>You are invited to gather</h2>
-
-      <p class="when">
-        <time datetime="2026-09-26T15:00-04:00">
-          <span class="when-day">Saturday</span>
-          <span class="when-date">September 26</span>
-          <span class="when-year">2026</span>
-        </time>
-      </p>
-
-      <hr class="invitation-rule">
-
-      <p class="where">
-        <b>3:00 until 7:00 in the afternoon</b><br>
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=Barquin+Funeral+Home%2C+7101+Broadway%2C+Guttenberg%2C+NJ+07093" target="_blank" rel="noopener">Barquin Funeral Home</a><br>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=7101+Broadway%2C+Guttenberg%2C+NJ+07093" target="_blank" rel="noopener">7101 Broadway, Guttenberg, NJ 07093</a>
-      </p>
-
-      <p class="programme">The memorial will begin at 3pm, followed by light refreshments
-        and sharing stories about the time we all shared with Armando.</p>
-
-      <div class="actions">
-        <a class="btn btn-quiet" href="celebration.ics" download>Save the date</a>
-      </div>
-    </div>
+  <!-- ── Photographs (revealed once photos.json has entries) ──── -->
+  <section class="wrap section" id="photographs" hidden>
+    <h2>Photographs</h2>
+    <p>A life in pictures, shared by family and friends. Choose any one to see it larger.</p>
+    <div id="gallery" class="gallery"></div>
   </section>
 
-  <!-- ── RSVP ─────────────────────────────────────────────────── -->
-  <section class="wrap section" id="rsvp">
-    <h2>Let the family know you&rsquo;re coming</h2>
+  <!-- ── Share a memory ───────────────────────────────────────── -->
+  <section class="wrap section" id="share">
+    <h2>Share a photograph or a memory</h2>
 
-    <p>Knowing roughly how many to expect helps enormously. If you would like to share
-      something you remember about Armando, there is room for it below.</p>
+    <p>Anything at all &mdash; a story, a habit of his, a moment you think of, a picture
+      from a shelf or a phone. Everything you send goes straight to the family, who may
+      add it to this page.</p>
 
     <div id="thanks" class="message thanks" hidden>
-      <h3>Your RSVP is with the family.</h3>
-      <p>Thank you. The family will be in touch if anything about the day changes.</p>
+      <h3>Your memory is with the family.</h3>
+      <p>Thank you. The family reads every one, and may add what you have shared to this
+        page.</p>
     </div>
 
-    <form id="rsvp-form" class="rsvp" enctype="multipart/form-data"
+    <form id="share-form" class="share-form" enctype="multipart/form-data"
           action="https://formspree.io/f/mzezpell" method="POST">
 
       <div class="field">
@@ -129,29 +108,22 @@
         <label for="f-email">Your email</label>
         <input type="email" id="f-email" name="email" autocomplete="email" required
                placeholder="you@example.com">
-        <p class="hint">So the family can reach you if anything about the day changes.</p>
+        <p class="hint">So the family can thank you, or ask about a photograph.</p>
       </div>
 
       <div class="field">
-        <label for="f-guests">How many people will come, including you</label>
-        <input class="field-count" type="number" id="f-guests" name="guests"
-               min="1" max="30" step="1" value="1" required inputmode="numeric">
-      </div>
-
-      <div class="field">
-        <label for="f-memory">Share a memory of Armando</label>
+        <label for="f-memory">A memory of Armando</label>
         <textarea id="f-memory" name="memory"
-                  placeholder="Anything at all &mdash; a story, a habit of his, a moment you think of."></textarea>
-        <p class="hint">Optional. The family may read these aloud on the day, or add them
-          to this page.</p>
+                  placeholder="A story, a habit of his, a moment you think of."></textarea>
+        <p class="hint">The family may add these to this page.</p>
       </div>
 
       <div class="field">
         <label for="f-photos">Photographs of Armando</label>
         <input type="file" id="f-photos" name="photos" multiple
                accept="image/*,.heic,.heif">
-        <p class="hint">Optional. Up to 10 pictures at a time, 25&nbsp;MB each &mdash; send
-          more in a second reply if you have them. The family may add them to this page.</p>
+        <p class="hint">Up to 10 pictures at a time, 25&nbsp;MB each &mdash; send more in a
+          second reply if you have them.</p>
       </div>
 
       <div class="offscreen" aria-hidden="true">
@@ -159,21 +131,14 @@
         <input type="text" id="f-trap" name="_gotcha" tabindex="-1" autocomplete="off">
       </div>
 
-      <input type="hidden" name="_subject" value="Celebration of life RSVP — Armando Fernandez">
+      <input type="hidden" name="_subject" value="A memory of Armando Fernandez">
 
       <div>
-        <button type="submit" class="btn" id="f-submit">Send RSVP</button>
+        <button type="submit" class="btn" id="f-submit">Send to the family</button>
       </div>
 
       <p class="message" id="f-message" role="status" aria-live="polite" hidden></p>
     </form>
-  </section>
-
-  <!-- ── Photographs (revealed once photos.json has entries) ──── -->
-  <section class="wrap section" id="photographs" hidden>
-    <h2>Photographs</h2>
-    <p>A life in pictures, shared by the family. Choose any one to see it larger.</p>
-    <div id="gallery" class="gallery"></div>
   </section>
 
 </main>
@@ -201,31 +166,6 @@
   <p>In loving memory of Armando Fernandez</p>
   <p class="domain">fernandez-legacy.family</p>
 </footer>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "Celebration of Life — Armando Fernandez",
-  "startDate": "2026-09-26T15:00:00-04:00",
-  "endDate": "2026-09-26T19:00:00-04:00",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "url": "https://fernandez-legacy.family/",
-  "location": {
-    "@type": "Place",
-    "name": "Barquin Funeral Home",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "7101 Broadway",
-      "addressLocality": "Guttenberg",
-      "addressRegion": "NJ",
-      "postalCode": "07093",
-      "addressCountry": "US"
-    }
-  }
-}
-</script>
 
 <script src="app.js"></script>
 
